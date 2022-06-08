@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.sistema</groupId>
-	<artifactId>projeto</artifactId>
+	<artifactId>projeto-estoque</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>projeto</name>
-	<description>sistema project for Spring Boot</description>
+	<name>projeto-estoque</name>
+	<description>Sistema de controle de estoque simples</description>
 	<properties>
 		<java.version>17</java.version>
 	</properties>
