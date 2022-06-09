@@ -11,6 +11,8 @@ public class Cliente implements Serializable{
 	private String nome;
 	private String cpf;
 	private String observacao;
+
+	private Endereco endereco = new Endereco();
 	
 	public Cliente() {
 		
@@ -54,6 +56,14 @@ public class Cliente implements Serializable{
 
 	public void setObservacao(String observacao) {
 		this.observacao = observacao;
+	}
+
+	public Endereco getEndereco() {
+		return endereco;
+	}
+
+	public void setEndereco(Endereco endereco) {
+		this.endereco = endereco;
 	}
 
 	@Override
