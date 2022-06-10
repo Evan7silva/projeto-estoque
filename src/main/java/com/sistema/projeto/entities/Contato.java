@@ -5,8 +5,7 @@ public class Contato {
 	private String telefone;
 	private String email;
 	
-	private Cliente cliente = new Cliente();
-	private Fornecedor fornecedor = new Fornecedor();
+
 	
 	public Contato() {
 		
@@ -34,21 +33,5 @@ public class Contato {
 		this.email = email;
 	}
 
-	public Cliente getCliente() {
-		return cliente;
-	}
-
-	public void setCliente(Cliente cliente) {
-		this.cliente = cliente;
-	}
-
-	public Fornecedor getFornecedor() {
-		return fornecedor;
-	}
-
-	public void setFornecedor(Fornecedor fornecedor) {
-		this.fornecedor = fornecedor;
-	}
-	
 
 }
