@@ -1,6 +1,8 @@
 package com.sistema.projeto.entities;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Objects;
 
 public class Entrada {
@@ -9,19 +11,22 @@ public class Entrada {
 	private Date dataEntrada;
 	private String observacao;
 	private Double valor;
+
+	private Fornecedor fornecedor;
 	
-	private ItemEntrada ItensEntrada;
+	private List<ItemEntrada> itens = new ArrayList<>();
 	
 	public Entrada() {
 		
 	}
 
-	public Entrada(Integer id, Date dataEntrada, String observacao, Double valor) {
+	public Entrada(Integer id, Date dataEntrada, String observacao, Double valor, Fornecedor fornecedor) {
 		super();
 		this.id = id;
 		this.dataEntrada = dataEntrada;
 		this.observacao = observacao;
 		this.valor = valor;
+		this.fornecedor = fornecedor;
 	}
 
 	public Integer getId() {
@@ -56,12 +61,21 @@ public class Entrada {
 		this.valor = valor;
 	}
 
-	public ItemEntrada getItensEntrada() {
-		return ItensEntrada;
+	public List<ItemEntrada> getItens() {
+		return itens;
 	}
 
-	public void setItensEntrada(ItemEntrada itensEntrada) {
-		ItensEntrada = itensEntrada;
+	public Fornecedor getFornecedor() {
+		return fornecedor;
+	}
+
+	public void setFornecedor(Fornecedor fornecedor) {
+		this.fornecedor = fornecedor;
+	}
+
+	//TODO: analisar regras de validação ao inserir
+	public void adicionar(ItemEntrada item) {
+		this.getItens().add(item);
 	}
 
 	@Override
