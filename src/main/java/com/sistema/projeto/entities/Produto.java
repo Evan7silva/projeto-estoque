@@ -1,124 +1,149 @@
 package com.sistema.projeto.entities;
 
+import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.Objects;
 
 public class Produto {
-	
-	private Integer id;
-	private String nome;
-	private Integer estoque;
-	private Double valorVenda;
-	private Double custoMedio;
-	private Double taxaDeLucro;
-	
-	private Categoria categoria = new Categoria();
-	private ItemPedido itens;
-	private ItemEntrada itensEntrada;
-	
-	public Categoria getCategoria() {
-		return categoria;
-	}
 
-	public void setCategoria(Categoria categoria) {
-		this.categoria = categoria;
-	}
+    private Integer id;
+    private String descricao;
+    private Integer estoque;
+    private BigDecimal valorVenda;
+    private BigDecimal custoMedio;
+    private Double taxaDeLucro;
+    private boolean ativo;
+    private Integer estoqueMinimo;
+    private Integer estoqueMaximo;
 
-	public Produto() {
-		
-	}
+    private LocalDate dataCadastro;
 
-	public Produto(Integer id, String nome, Integer estoque, Double valorVenda, Double custoMedio, Double taxaDeLucro) {
-		super();
-		this.id = id;
-		this.nome = nome;
-		this.estoque = estoque;
-		this.valorVenda = valorVenda;
-		this.custoMedio = custoMedio;
-		this.taxaDeLucro = taxaDeLucro;
-	}
+    private Categoria categoria = new Categoria();
 
-	public Integer getId() {
-		return id;
-	}
+    public Produto() {
+        this.ativo = true;
+        this.dataCadastro = LocalDate.now();
+    }
 
-	public void setId(Integer id) {
-		this.id = id;
-	}
+    public Produto(String descricao, Integer estoque, BigDecimal valorVenda, BigDecimal custoMedio, Double taxaDeLucro, Integer estoqueMinimo, Integer estoqueMaximo, Categoria categoria) {
+        this.descricao = descricao;
+        this.estoque = estoque;
+        this.valorVenda = valorVenda;
+        this.custoMedio = custoMedio;
+        this.taxaDeLucro = taxaDeLucro;
+        this.ativo = true;
+        this.estoqueMinimo = estoqueMinimo;
+        this.estoqueMaximo = estoqueMaximo;
+        this.categoria = categoria;
+        this.dataCadastro = LocalDate.now();
+    }
 
-	public String getNome() {
-		return nome;
-	}
+    public Integer getId() {
+        return id;
+    }
 
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
-	public Integer getEstoque() {
-		return estoque;
-	}
+    public String getDescricao() {
+        return descricao;
+    }
 
-	public void setEstoque(Integer estoque) {
-		this.estoque = estoque;
-	}
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
 
-	public Double getValorVenda() {
-		return valorVenda;
-	}
+    public Integer getEstoque() {
+        return estoque;
+    }
 
-	public void setValorVenda(Double valorVenda) {
-		this.valorVenda = valorVenda;
-	}
+    public void setEstoque(Integer estoque) {
+        this.estoque = estoque;
+    }
 
-	public Double getCustoMedio() {
-		return custoMedio;
-	}
+    public BigDecimal getValorVenda() {
+        return valorVenda;
+    }
 
-	public void setCustoMedio(Double custoMedio) {
-		this.custoMedio = custoMedio;
-	}
+    public void setValorVenda(BigDecimal valorVenda) {
+        this.valorVenda = valorVenda;
+    }
 
-	public Double getTaxaDeLucro() {
-		return taxaDeLucro;
-	}
+    public BigDecimal getCustoMedio() {
+        return custoMedio;
+    }
 
-	public void setTaxaDeLucro(Double taxaDeLucro) {
-		this.taxaDeLucro = taxaDeLucro;
-	}
+    public void setCustoMedio(BigDecimal custoMedio) {
+        this.custoMedio = custoMedio;
+    }
 
-	public ItemPedido getItens() {
-		return itens;
-	}
+    public Double getTaxaDeLucro() {
+        return taxaDeLucro;
+    }
 
-	public void setItens(ItemPedido itens) {
-		this.itens = itens;
-	}
+    public void setTaxaDeLucro(Double taxaDeLucro) {
+        this.taxaDeLucro = taxaDeLucro;
+    }
 
-	public ItemEntrada getEntradas() {
-		return itensEntrada;
-	}
+    public boolean isAtivo() {
+        return ativo;
+    }
 
-	public void setEntradas(ItemEntrada entradas) {
-		this.itensEntrada = entradas;
-	}
+    public void setAtivo(boolean ativo) {
+        this.ativo = ativo;
+    }
 
-	@Override
-	public int hashCode() {
-		return Objects.hash(id);
-	}
+    public Categoria getCategoria() {
+        return categoria;
+    }
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Produto other = (Produto) obj;
-		return Objects.equals(id, other.id);
-	}
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
+    }
 
-	public static void calculoValorVenda() {
-		
-	}
+    public Integer getEstoqueMinimo() {
+        return estoqueMinimo;
+    }
+
+    public void setEstoqueMinimo(Integer estoqueMinimo) {
+        this.estoqueMinimo = estoqueMinimo;
+    }
+
+    public Integer getEstoqueMaximo() {
+        return estoqueMaximo;
+    }
+
+    public void setEstoqueMaximo(Integer estoqueMaximo) {
+        this.estoqueMaximo = estoqueMaximo;
+    }
+
+    public LocalDate getDataCadastro() {
+        return dataCadastro;
+    }
+
+    public void setDataCadastro(LocalDate dataCadastro) {
+        this.dataCadastro = dataCadastro;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Produto other = (Produto) obj;
+        return Objects.equals(id, other.id);
+    }
+
+    public void calcularValorVenda() {
+
+    }
 }

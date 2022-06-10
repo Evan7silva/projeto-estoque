@@ -1,25 +1,26 @@
 package com.sistema.projeto.entities;
 
+import java.math.BigDecimal;
 import java.util.Objects;
 
 public class ItemEntrada {
 	
 	private Integer id;
 	private Integer quantidade;
-	private Double valorParcial;
-	
-	private Entrada entrada = new Entrada();
-	private Produto produto = new Produto();
+	private BigDecimal valorUnitario;
+
+	private Entrada entrada;
+	private Produto produto;
 	
 	public ItemEntrada() {
-		
+		valorUnitario = BigDecimal.ZERO;
 	}
 
-	public ItemEntrada(Integer id, Integer quantidade, Double valorParcial) {
+	public ItemEntrada(Integer id, Integer quantidade, BigDecimal valorParcial) {
 		super();
 		this.id = id;
 		this.quantidade = quantidade;
-		this.valorParcial = valorParcial;
+		this.valorUnitario = valorParcial;
 	}
 
 	public Integer getId() {
@@ -38,12 +39,12 @@ public class ItemEntrada {
 		this.quantidade = quantidade;
 	}
 
-	public Double getValorParcial() {
-		return valorParcial;
+	public BigDecimal getValorUnitario() {
+		return valorUnitario;
 	}
 
-	public void setValorParcial(Double valorParcial) {
-		this.valorParcial = valorParcial;
+	public void setValorUnitario(BigDecimal valorUnitario) {
+		this.valorUnitario = valorUnitario;
 	}
 
 	public Entrada getEntrada() {

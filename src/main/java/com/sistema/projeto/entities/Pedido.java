@@ -1,35 +1,41 @@
 package com.sistema.projeto.entities;
 
+import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Objects;
 
 public class Pedido {
 	
 	private Integer id;
 	private String observacao;
-	private Double valorTotal;
-	private Date dataPedido;
+	private BigDecimal valorTotal;
+	private LocalDate dataPedido;
 	
 	private Status status;
-	private Pagamento pegamento; 
+	private Pagamento pagamento;
 	
-	private Cliente cliente = new Cliente();
-	private ItemPedido itens; 
+	private Cliente cliente;
+	private List<ItemPedido> itens = new ArrayList<>();
 	
 	
 	public Pedido() {
-		
+		this.status = Status.ORCAMENTO;
+		this.valorTotal = BigDecimal.ZERO;
+		this.dataPedido = LocalDate.now();
 	}
 
-	public Pedido(Integer id, String observacao, Double valorTotal, Date dataPedido, Status status,
-			Pagamento pegamento) {
+	public Pedido(Integer id, String observacao, BigDecimal valorTotal, LocalDate dataPedido, Status status,
+			Pagamento pagamento) {
 		super();
 		this.id = id;
 		this.observacao = observacao;
 		this.valorTotal = valorTotal;
 		this.dataPedido = dataPedido;
 		this.status = status;
-		this.pegamento = pegamento;
+		this.pagamento = pagamento;
 	}
 
 	public Integer getId() {
@@ -48,19 +54,19 @@ public class Pedido {
 		this.observacao = observacao;
 	}
 
-	public Double getValorTotal() {
+	public BigDecimal getValorTotal() {
 		return valorTotal;
 	}
 
-	public void setValorTotal(Double valorTotal) {
+	public void setValorTotal(BigDecimal valorTotal) {
 		this.valorTotal = valorTotal;
 	}
 
-	public Date getDataPedido() {
+	public LocalDate getDataPedido() {
 		return dataPedido;
 	}
 
-	public void setDataPedido(Date dataPedido) {
+	public void setDataPedido(LocalDate dataPedido) {
 		this.dataPedido = dataPedido;
 	}
 
@@ -72,12 +78,12 @@ public class Pedido {
 		this.status = status;
 	}
 
-	public Pagamento getPegamento() {
-		return pegamento;
+	public Pagamento getPagamento() {
+		return pagamento;
 	}
 
-	public void setPegamento(Pagamento pegamento) {
-		this.pegamento = pegamento;
+	public void setPagamento(Pagamento pagamento) {
+		this.pagamento = pagamento;
 	}
 
 	public Cliente getCliente() {
@@ -88,12 +94,13 @@ public class Pedido {
 		this.cliente = cliente;
 	}
 
-	public ItemPedido getItens() {
+	public List<ItemPedido> getItens() {
 		return itens;
 	}
 
-	public void setItens(ItemPedido itens) {
-		this.itens = itens;
+	//TODO: validar regras de negócio
+	public void adicionar(ItemPedido item) {
+		itens.add(item);
 	}
 
 	@Override

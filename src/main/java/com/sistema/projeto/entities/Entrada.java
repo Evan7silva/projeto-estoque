@@ -1,27 +1,35 @@
 package com.sistema.projeto.entities;
 
+import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Objects;
 
 public class Entrada {
 	
 	private Integer id;
-	private Date dataEntrada;
+	private LocalDate dataEntrada;
 	private String observacao;
-	private Double valor;
+	private BigDecimal valor;
+
+	private Fornecedor fornecedor;
 	
-	private ItemEntrada ItensEntrada;
+	private List<ItemEntrada> itens = new ArrayList<>();
 	
 	public Entrada() {
-		
+		valor = BigDecimal.ZERO;
+		dataEntrada = LocalDate.now();
 	}
 
-	public Entrada(Integer id, Date dataEntrada, String observacao, Double valor) {
+	public Entrada(Integer id, LocalDate dataEntrada, String observacao, BigDecimal valor, Fornecedor fornecedor) {
 		super();
 		this.id = id;
 		this.dataEntrada = dataEntrada;
 		this.observacao = observacao;
 		this.valor = valor;
+		this.fornecedor = fornecedor;
 	}
 
 	public Integer getId() {
@@ -32,11 +40,11 @@ public class Entrada {
 		this.id = id;
 	}
 
-	public Date getDataEntrada() {
+	public LocalDate getDataEntrada() {
 		return dataEntrada;
 	}
 
-	public void setDataEntrada(Date dataEntrada) {
+	public void setDataEntrada(LocalDate dataEntrada) {
 		this.dataEntrada = dataEntrada;
 	}
 
@@ -48,20 +56,29 @@ public class Entrada {
 		this.observacao = observacao;
 	}
 
-	public Double getValor() {
+	public BigDecimal getValor() {
 		return valor;
 	}
 
-	public void setValor(Double valor) {
+	public void setValor(BigDecimal valor) {
 		this.valor = valor;
 	}
 
-	public ItemEntrada getItensEntrada() {
-		return ItensEntrada;
+	public List<ItemEntrada> getItens() {
+		return itens;
 	}
 
-	public void setItensEntrada(ItemEntrada itensEntrada) {
-		ItensEntrada = itensEntrada;
+	public Fornecedor getFornecedor() {
+		return fornecedor;
+	}
+
+	public void setFornecedor(Fornecedor fornecedor) {
+		this.fornecedor = fornecedor;
+	}
+
+	//TODO: analisar regras de validação ao inserir
+	public void adicionar(ItemEntrada item) {
+		this.getItens().add(item);
 	}
 
 	@Override
