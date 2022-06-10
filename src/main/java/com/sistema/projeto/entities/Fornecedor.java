@@ -8,9 +8,8 @@ public class Fornecedor {
 	private String nome;
 	private String cnpj;
 	
-	private Contato contatoFor = new Contato();
-	private Entrada entradas;
-	
+	private Contato contato = new Contato();
+
 	public Fornecedor() {
 		
 	}
@@ -46,21 +45,14 @@ public class Fornecedor {
 		this.cnpj = cnpj;
 	}
 
-	public Contato getContatoFor() {
-		return contatoFor;
+	public Contato getContato() {
+		return contato;
 	}
 
-	public void setContatoFor(Contato contatoFor) {
-		this.contatoFor = contatoFor;
+	public void setContato(Contato contato) {
+		this.contato = contato;
 	}
 
-	public Entrada getEntradas() {
-		return entradas;
-	}
-
-	public void setEntradas(Entrada entradas) {
-		this.entradas = entradas;
-	}
 
 	@Override
 	public int hashCode() {
