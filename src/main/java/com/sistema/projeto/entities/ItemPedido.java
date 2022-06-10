@@ -6,21 +6,21 @@ public class ItemPedido {
 	
 	private Integer id;
 	private Integer quantidade;
-	private Double valorPacial;
+	private Double valorUnitario;
 	
-	private Produto produto = new Produto();
-	private Pedido pedido = new Pedido();
+	private Produto produto;
+	private Pedido pedido;
 	
 	public ItemPedido() {
 		
 	}
 	
-	public ItemPedido(Integer id, Integer quantidade, Double valorPacial, Produto produto) {
+	public ItemPedido(Integer quantidade, Double valorUnitario, Produto produto, Pedido pedido) {
 		super();
-		this.id = id;
 		this.quantidade = quantidade;
-		this.valorPacial = valorPacial;
+		this.valorUnitario = valorUnitario;
 		this.produto = produto;
+		this.pedido = pedido;
 	}
 
 	public Integer getId() {
@@ -39,12 +39,12 @@ public class ItemPedido {
 		this.quantidade = quantidade;
 	}
 
-	public Double getValorPacial() {
-		return valorPacial;
+	public Double getValorUnitario() {
+		return valorUnitario;
 	}
 
-	public void setValorPacial(Double valorPacial) {
-		this.valorPacial = valorPacial;
+	public void setValorUnitario(Double valorUnitario) {
+		this.valorUnitario = valorUnitario;
 	}
 
 	public Produto getProduto() {
