@@ -1,21 +1,22 @@
 package com.sistema.projeto.entities;
 
+import java.math.BigDecimal;
 import java.util.Objects;
 
 public class ItemEntrada {
 	
 	private Integer id;
 	private Integer quantidade;
-	private Double valorUnitario;
+	private BigDecimal valorUnitario;
 
 	private Entrada entrada;
 	private Produto produto;
 	
 	public ItemEntrada() {
-		
+		valorUnitario = BigDecimal.ZERO;
 	}
 
-	public ItemEntrada(Integer id, Integer quantidade, Double valorParcial) {
+	public ItemEntrada(Integer id, Integer quantidade, BigDecimal valorParcial) {
 		super();
 		this.id = id;
 		this.quantidade = quantidade;
@@ -38,11 +39,11 @@ public class ItemEntrada {
 		this.quantidade = quantidade;
 	}
 
-	public Double getValorUnitario() {
+	public BigDecimal getValorUnitario() {
 		return valorUnitario;
 	}
 
-	public void setValorUnitario(Double valorUnitario) {
+	public void setValorUnitario(BigDecimal valorUnitario) {
 		this.valorUnitario = valorUnitario;
 	}
 

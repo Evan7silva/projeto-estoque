@@ -1,6 +1,7 @@
 package com.sistema.projeto.entities;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.Objects;
 
 public class Cliente implements Serializable{
@@ -12,10 +13,12 @@ public class Cliente implements Serializable{
 	private String cpf;
 	private String observacao;
 
+	private LocalDate dataCadastro;
+
 	private Endereco endereco = new Endereco();
 	
 	public Cliente() {
-		
+		this.dataCadastro = LocalDate.now();
 	}
 
 	public Cliente(Integer id, String nome, String cpf, String observacao) {
@@ -24,6 +27,7 @@ public class Cliente implements Serializable{
 		this.nome = nome;
 		this.cpf = cpf;
 		this.observacao = observacao;
+		this.dataCadastro = LocalDate.now();
 	}
 
 	public Integer getId() {
@@ -64,6 +68,14 @@ public class Cliente implements Serializable{
 
 	public void setEndereco(Endereco endereco) {
 		this.endereco = endereco;
+	}
+
+	public LocalDate getDataCadastro() {
+		return dataCadastro;
+	}
+
+	public void setDataCadastro(LocalDate dataCadastro) {
+		this.dataCadastro = dataCadastro;
 	}
 
 	@Override

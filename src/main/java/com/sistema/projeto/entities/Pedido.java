@@ -1,5 +1,7 @@
 package com.sistema.projeto.entities;
 
+import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -9,8 +11,8 @@ public class Pedido {
 	
 	private Integer id;
 	private String observacao;
-	private Double valorTotal;
-	private Date dataPedido;
+	private BigDecimal valorTotal;
+	private LocalDate dataPedido;
 	
 	private Status status;
 	private Pagamento pagamento;
@@ -21,9 +23,11 @@ public class Pedido {
 	
 	public Pedido() {
 		this.status = Status.ORCAMENTO;
+		this.valorTotal = BigDecimal.ZERO;
+		this.dataPedido = LocalDate.now();
 	}
 
-	public Pedido(Integer id, String observacao, Double valorTotal, Date dataPedido, Status status,
+	public Pedido(Integer id, String observacao, BigDecimal valorTotal, LocalDate dataPedido, Status status,
 			Pagamento pagamento) {
 		super();
 		this.id = id;
@@ -50,19 +54,19 @@ public class Pedido {
 		this.observacao = observacao;
 	}
 
-	public Double getValorTotal() {
+	public BigDecimal getValorTotal() {
 		return valorTotal;
 	}
 
-	public void setValorTotal(Double valorTotal) {
+	public void setValorTotal(BigDecimal valorTotal) {
 		this.valorTotal = valorTotal;
 	}
 
-	public Date getDataPedido() {
+	public LocalDate getDataPedido() {
 		return dataPedido;
 	}
 
-	public void setDataPedido(Date dataPedido) {
+	public void setDataPedido(LocalDate dataPedido) {
 		this.dataPedido = dataPedido;
 	}
 

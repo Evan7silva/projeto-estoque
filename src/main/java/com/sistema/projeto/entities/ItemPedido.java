@@ -1,21 +1,22 @@
 package com.sistema.projeto.entities;
 
+import java.math.BigDecimal;
 import java.util.Objects;
 
 public class ItemPedido {
 	
 	private Integer id;
 	private Integer quantidade;
-	private Double valorUnitario;
+	private BigDecimal valorUnitario;
 	
 	private Produto produto;
 	private Pedido pedido;
 	
 	public ItemPedido() {
-		
+
 	}
 	
-	public ItemPedido(Integer quantidade, Double valorUnitario, Produto produto, Pedido pedido) {
+	public ItemPedido(Integer quantidade, BigDecimal valorUnitario, Produto produto, Pedido pedido) {
 		super();
 		this.quantidade = quantidade;
 		this.valorUnitario = valorUnitario;
@@ -39,11 +40,11 @@ public class ItemPedido {
 		this.quantidade = quantidade;
 	}
 
-	public Double getValorUnitario() {
+	public BigDecimal getValorUnitario() {
 		return valorUnitario;
 	}
 
-	public void setValorUnitario(Double valorUnitario) {
+	public void setValorUnitario(BigDecimal valorUnitario) {
 		this.valorUnitario = valorUnitario;
 	}
 

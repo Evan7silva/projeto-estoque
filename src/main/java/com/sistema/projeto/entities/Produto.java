@@ -1,5 +1,7 @@
 package com.sistema.projeto.entities;
 
+import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.Objects;
 
 public class Produto {
@@ -7,20 +9,23 @@ public class Produto {
     private Integer id;
     private String descricao;
     private Integer estoque;
-    private Double valorVenda;
-    private Double custoMedio;
+    private BigDecimal valorVenda;
+    private BigDecimal custoMedio;
     private Double taxaDeLucro;
     private boolean ativo;
     private Integer estoqueMinimo;
     private Integer estoqueMaximo;
 
+    private LocalDate dataCadastro;
+
     private Categoria categoria = new Categoria();
 
     public Produto() {
         this.ativo = true;
+        this.dataCadastro = LocalDate.now();
     }
 
-    public Produto(String descricao, Integer estoque, Double valorVenda, Double custoMedio, Double taxaDeLucro, Integer estoqueMinimo, Integer estoqueMaximo, Categoria categoria) {
+    public Produto(String descricao, Integer estoque, BigDecimal valorVenda, BigDecimal custoMedio, Double taxaDeLucro, Integer estoqueMinimo, Integer estoqueMaximo, Categoria categoria) {
         this.descricao = descricao;
         this.estoque = estoque;
         this.valorVenda = valorVenda;
@@ -30,6 +35,7 @@ public class Produto {
         this.estoqueMinimo = estoqueMinimo;
         this.estoqueMaximo = estoqueMaximo;
         this.categoria = categoria;
+        this.dataCadastro = LocalDate.now();
     }
 
     public Integer getId() {
@@ -56,19 +62,19 @@ public class Produto {
         this.estoque = estoque;
     }
 
-    public Double getValorVenda() {
+    public BigDecimal getValorVenda() {
         return valorVenda;
     }
 
-    public void setValorVenda(Double valorVenda) {
+    public void setValorVenda(BigDecimal valorVenda) {
         this.valorVenda = valorVenda;
     }
 
-    public Double getCustoMedio() {
+    public BigDecimal getCustoMedio() {
         return custoMedio;
     }
 
-    public void setCustoMedio(Double custoMedio) {
+    public void setCustoMedio(BigDecimal custoMedio) {
         this.custoMedio = custoMedio;
     }
 
@@ -110,6 +116,14 @@ public class Produto {
 
     public void setEstoqueMaximo(Integer estoqueMaximo) {
         this.estoqueMaximo = estoqueMaximo;
+    }
+
+    public LocalDate getDataCadastro() {
+        return dataCadastro;
+    }
+
+    public void setDataCadastro(LocalDate dataCadastro) {
+        this.dataCadastro = dataCadastro;
     }
 
     @Override
