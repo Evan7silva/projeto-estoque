@@ -16,6 +16,7 @@ public class Cliente implements Serializable{
 	private LocalDate dataCadastro;
 
 	private Endereco endereco = new Endereco();
+	private Contato contato = new Contato();
 	
 	public Cliente() {
 		this.dataCadastro = LocalDate.now();
@@ -76,6 +77,14 @@ public class Cliente implements Serializable{
 
 	public void setDataCadastro(LocalDate dataCadastro) {
 		this.dataCadastro = dataCadastro;
+	}
+
+	public Contato getContato() {
+		return contato;
+	}
+
+	public void setContato(Contato contato) {
+		this.contato = contato;
 	}
 
 	@Override
