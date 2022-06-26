@@ -1,21 +1,25 @@
 package com.sistema.projeto.entities;
 
+import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Objects;
-
+@Entity
 public class Entrada {
-	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private LocalDate dataEntrada;
 	private String observacao;
 	private BigDecimal valor;
 
+	@ManyToOne
 	private Fornecedor fornecedor;
-	
+
+	@OneToMany(mappedBy = "entrada")
 	private List<ItemEntrada> itens = new ArrayList<>();
 	
 	public Entrada() {

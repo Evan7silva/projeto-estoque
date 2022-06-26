@@ -1,14 +1,16 @@
 package com.sistema.projeto.entities;
 
+import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Objects;
-
+@Entity
 public class Pedido {
-	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String observacao;
 	private BigDecimal valorTotal;
@@ -16,8 +18,9 @@ public class Pedido {
 	
 	private Status status;
 	private Pagamento pagamento;
-	
+	@ManyToOne
 	private Cliente cliente;
+	@OneToMany(mappedBy = "pedido")
 	private List<ItemPedido> itens = new ArrayList<>();
 	
 	

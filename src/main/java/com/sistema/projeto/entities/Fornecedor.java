@@ -1,13 +1,17 @@
 package com.sistema.projeto.entities;
 
+import javax.persistence.*;
 import java.util.Objects;
 
+@Entity
 public class Fornecedor {
-
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String nome;
 	private String cnpj;
-	
+
+	@Embedded
 	private Contato contato = new Contato();
 
 	public Fornecedor() {

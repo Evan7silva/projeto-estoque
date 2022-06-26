@@ -1,5 +1,8 @@
 package com.sistema.projeto.entities;
 
+import javax.persistence.Embeddable;
+
+@Embeddable
 public class Contato {
 	
 	private String telefone;

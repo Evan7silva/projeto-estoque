@@ -1,7 +1,8 @@
 package com.sistema.projeto.entities;
 
+import javax.persistence.Embeddable;
 import java.util.Objects;
-
+@Embeddable
 public class Endereco {
     private String logradouro;
     private String numero;
