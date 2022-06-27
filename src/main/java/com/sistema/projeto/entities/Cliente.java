@@ -1,13 +1,13 @@
 package com.sistema.projeto.entities;
 
+import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Objects;
-
+@Entity
 public class Cliente implements Serializable{
-
-	private static final long serialVersionUID = 1L;
-	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String nome;
 	private String cpf;
@@ -15,7 +15,10 @@ public class Cliente implements Serializable{
 
 	private LocalDate dataCadastro;
 
+	@Embedded
 	private Endereco endereco = new Endereco();
+	@Embedded
+	private Contato contato = new Contato();
 	
 	public Cliente() {
 		this.dataCadastro = LocalDate.now();
@@ -76,6 +79,14 @@ public class Cliente implements Serializable{
 
 	public void setDataCadastro(LocalDate dataCadastro) {
 		this.dataCadastro = dataCadastro;
+	}
+
+	public Contato getContato() {
+		return contato;
+	}
+
+	public void setContato(Contato contato) {
+		this.contato = contato;
 	}
 
 	@Override

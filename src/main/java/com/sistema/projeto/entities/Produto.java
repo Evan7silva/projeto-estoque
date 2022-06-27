@@ -1,11 +1,13 @@
 package com.sistema.projeto.entities;
 
+import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.Objects;
-
+@Entity
 public class Produto {
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String descricao;
     private Integer estoque;
@@ -18,6 +20,7 @@ public class Produto {
 
     private LocalDate dataCadastro;
 
+    @ManyToOne
     private Categoria categoria = new Categoria();
 
     public Produto() {

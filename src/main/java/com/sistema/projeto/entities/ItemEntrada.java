@@ -1,15 +1,20 @@
 package com.sistema.projeto.entities;
 
+import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.Objects;
-
+@Entity
 public class ItemEntrada {
-	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private Integer quantidade;
 	private BigDecimal valorUnitario;
 
+	@ManyToOne
 	private Entrada entrada;
+
+	@ManyToOne
 	private Produto produto;
 	
 	public ItemEntrada() {
